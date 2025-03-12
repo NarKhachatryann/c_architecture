@@ -56,14 +56,10 @@ void User::editTask(const std::string& title, const Task& updatedTask) {
 }
 
 void User::listTasks() const {
-    for (const Task* task : tasks) {
-        std::cout << "Title: " << task->getTitle() << std::endl;
-        std::cout << "Description: " << task->getDescription() << std::endl;
-        std::cout << "Deadline: " << task->getDeadline() << std::endl;
-        std::cout << "Category: " << task->getCategory() << std::endl;
-        std::cout << "Priority: " << task->getPriority() << std::endl;
-        std::cout << "Completed: " << (task->isCompleted() ? "Yes" : "No") << std::endl;
-        std::cout << std::endl;
+    for (int i = 0; i < tasks.size(); i++) {
+        std::cout << i + 1 << ". ";
+        tasks[i]->display();
+        
     }
 }
 
