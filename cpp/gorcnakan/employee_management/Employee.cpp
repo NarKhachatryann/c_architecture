@@ -27,26 +27,18 @@ Employee::Employee(const std::string& id, const std::string& name, double salary
 
 void Employee::updateRate() {
     switch (role) {
-        case Role::Intern:
-            rate = 0.5;
-            break;
-        case Role::Junior:
-            rate = 1.0;
-            break;
-        case Role::Middle:
-            rate = 1.5;
-            break;
-        case Role::Senior:
-            rate = 2.0;
-            break;
+        case Role::Intern: rate = 0.5; break;
+        case Role::Junior: rate = 1.0; break;
+        case Role::Middle: rate = 1.5; break;
+        case Role::Senior: rate = 2.0; break;
+        default: rate = 1.0; break;
     }
 }
 
 void Employee::promote() {
-    if (role != Role::Senior) {
-        role = static_cast<Role>(static_cast<int>(role) + 1);
-        updateRate();
-    }
+    if (role == Role::Intern) role = Role::Junior;
+    else if (role == Role::Junior) role = Role::Middle;
+    else if (role == Role::Middle) role = Role::Senior;
 }
 
 double Employee::getBaseSalary() const {

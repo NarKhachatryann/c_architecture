@@ -3,11 +3,11 @@
 
 
 PartTimeEmployee::PartTimeEmployee(const std::string& id, const std::string& name, double hourlyWage, double hours, Role role)
-    : Employee(id, name, hourlyWage * hours, role, EmploymentType::PartTime), hoursWorked(hours), hourlyWage(hourlyWage) {}
+    : Employee(id, name, 0.0, role, EmploymentType::PartTime), hoursWorked(hours), hourlyWage(hourlyWage) {}
 
 
 double PartTimeEmployee::calculateSalary() const {
-    return hoursWorked * hourlyWage;
+    return hourlyWage * hoursWorked * getRate();
 }
 
 

@@ -37,7 +37,7 @@ public:
     Role getRole() const;
     double getRate() const ;
 
-    virtual ~Employee() {}
+    virtual ~Employee() = default;
 };
 
 #endif
