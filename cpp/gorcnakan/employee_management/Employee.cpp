@@ -63,3 +63,13 @@ const std::string& Employee::getID() const {
 const std::string& Employee::getName() const {
     return name;
 }
+
+Role& operator++(Role& r) {
+    switch (r) {
+        case Role::Intern: return r = Role::Junior;
+        case Role::Junior: return r = Role::Middle;
+        case Role::Middle: return r = Role::Senior;
+        case Role::Senior: return r; // Already at max level
+    }
+    return r;
+}
