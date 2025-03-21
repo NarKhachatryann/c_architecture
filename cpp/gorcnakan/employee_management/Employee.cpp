@@ -52,9 +52,12 @@ void Employee::displayDetails() const {
 
 
 void Employee::updateStatus(EmployeeStatus newStatus) {
-    status = newStatus;
+    if (newStatus >= EmployeeStatus::Active && newStatus <= EmployeeStatus::Retired) {
+        status = newStatus;
+    } else {
+        std::cerr << "Invalid status update!" << std::endl;
+    }
 }
-
 
 const std::string& Employee::getID() const {
     return employeeID;
