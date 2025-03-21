@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <memory>
 #include "FullTimeEmployee.h"
 #include "PartTimeEmployee.h"
 #include "Utility.h"
@@ -17,7 +16,7 @@ void displayMenu() {
 }
 
 int main() {
-    std::vector<std::unique_ptr<Employee>> employees;
+    std::vector<Employee*> employees;
     int choice;
 
     do {
@@ -39,7 +38,7 @@ int main() {
                 std::cin >> roleInt;
 
                 Role role = static_cast<Role>(roleInt);
-                employees.push_back(std::make_unique<FullTimeEmployee>(id, name, salary, role));
+                employees.push_back(new FullTimeEmployee(id, name, salary, role));
                 std::cout << "Full-Time Employee Added Successfully!\n";
                 break;
             }
@@ -59,7 +58,7 @@ int main() {
                 std::cin >> roleInt;
 
                 Role role = static_cast<Role>(roleInt);
-                employees.push_back(std::make_unique<PartTimeEmployee>(id, name, hourlyWage, hours, role));
+                employees.push_back(new PartTimeEmployee(id, name, hourlyWage, hours, role));
                 std::cout << "Part-Time Employee Added Successfully!\n";
                 break;
             }
@@ -118,6 +117,11 @@ int main() {
         }
     } while (choice != 0);
 
+    
+    for (auto employee : employees) {
+        delete employee;
+    }
+    employees.clear();
+
     return 0;
 }
-
