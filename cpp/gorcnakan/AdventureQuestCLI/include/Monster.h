@@ -12,6 +12,7 @@ public:
 
     void displayStats() const override;
     void takeDamage(int damage) override;
+    void useSpecialAbility() const;
 };
 
 #endif

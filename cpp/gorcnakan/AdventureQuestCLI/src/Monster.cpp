@@ -11,3 +11,7 @@ void Monster::takeDamage(int damage) {
     health -= damage;
     if (health < 0) health = 0;
 }
+
+void Monster::useSpecialAbility() const {
+    std::cout << name << " uses " << specialAbility << "!\n";
+}
