@@ -8,5 +8,5 @@ std::string Utility::toLowerCase(const std::string& input) {
 }
 
 bool Utility::isValidInput(int choice, int min, int max) {
-    return (choice >= min && choice <= max);
+    return (choice > min && choice < max);
 }
