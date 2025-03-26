@@ -1,7 +1,7 @@
 #ifndef COMBATABLE_H
 #define COMBATABLE_H
 
-class Character;
+#include "Character.h"
 
 class Combatable {
 public:
