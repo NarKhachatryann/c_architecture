@@ -8,8 +8,8 @@ class NPC : public Character {
     std::string dialogue;
 
 public:
-    NPC(const std::string& name, int health, const std::string& dialogue)
-        : Character(name, health, 0, 0), dialogue(dialogue) {}
+    NPC(const std::string& name, int health, int attackPower, int defense, int maxHealth, const std::string& dialogue)
+        : Character(name, health, attackPower, defense, maxHealth), dialogue(dialogue) {}
 
     void displayStats() const override;
     void takeDamage(int damage) override;
