@@ -13,6 +13,10 @@ void Character::displayStats() const {
               << " | Defense: " << defense << "\n";
 }
 
+void Character::setHealth(int health) { this->health = health; }
+void Character::setAttackPower(int attackPower) { this->attackPower = attackPower; }
+int Character::getMaxHealth() const { return maxHealth; }
+
 int Character::getHealth() const { return health; }
 int Character::getAttackPower() const { return attackPower; }
 int Character::getDefense() const { return defense; }

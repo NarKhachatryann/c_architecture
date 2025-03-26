@@ -37,20 +37,36 @@ void Hero::removeItemFromInventory(const std::string& item) {
     }
 }
 
-void Hero::useItem(const std::string& item) {
+bool Hero::useItem(const std::string& item) {
     auto it = std::find(inventory.begin(), inventory.end(), item);
-    if (it != inventory.end()) {
-        std::cout << "You have used " << item << ".\n";
-        inventory.erase(it);
-    } else {
-        std::cout << "You do not have " << item << " in your inventory.\n";
+    if (it == inventory.end()) {
+        std::cout << "Item not found in the inventory!\n";
+        return false;
     }
+
+    if (item == "Health Potion") {
+        if (getHealth() == getMaxHealth()) {
+            std::cout << "You are already at full health. Cannot use " << item << ".\n";
+            return false;
+        }
+        setHealth(getHealth() + 50);
+        std::cout << "You used a " << item << " and restored 50 health points!\n";
+    } else if (item == "Mana Potion") {
+        std::cout << "You used a " << item << " and restored mana points!\n";
+    } else {
+        std::cout << item << " cannot be used right now.\n";
+        return false;
+    }
+
+    inventory.erase(it);
+    std::cout << item << " has been removed from the inventory.\n";
+    return true;
 }
 
 void Hero::gainExperience(int experience) {
     experiencePoints += experience;
-    std::cout << "You have gained " << experience << " experience points.\n";
-    if (experiencePoints >= 100) {
+    while (experiencePoints >= 100) {
+        experiencePoints -= 100;
         levelUp();
     }
 }

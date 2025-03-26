@@ -9,10 +9,11 @@ protected:
     int health;
     int attackPower;
     int defense;
+    int maxHealth;
 
 public:
-    Character(const std::string& name, int health, int attackPower, int defense)
-        : name(name), health(health), attackPower(attackPower), defense(defense) {}
+    Character(const std::string& name, int health, int attackPower, int defense, int maxHealth)
+        : name(name), health(health), attackPower(attackPower), defense(defense), maxHealth(maxHealth) {}
 
     virtual ~Character() = default;
 
@@ -23,6 +24,9 @@ public:
     int getAttackPower() const;
     int getDefense() const;
     std::string getName() const;
+    int getMaxHealth() const;
+    void setHealth(int health);
+    void setAttackPower(int attackPower);
 };
 
 #endif
