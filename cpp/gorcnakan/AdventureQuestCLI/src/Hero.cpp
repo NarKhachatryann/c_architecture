@@ -70,3 +70,58 @@ void Hero::gainExperience(int experience) {
         levelUp();
     }
 }
+
+int Hero::getX() const {
+    return x;
+}
+
+int Hero::getY() const {
+    return y;
+}
+
+void Hero::move(const std::string& direction) {
+    if (direction == "up") {
+        y += 1;
+    } else if (direction == "down") {
+        y -= 1;
+    } else if (direction == "left") {
+        x -= 1;
+    } else if (direction == "right") {
+        x += 1;
+    } else {
+        std::cout << "Invalid direction!" << std::endl;
+    }
+}
+
+void Hero::setX(int newX) {
+    x = newX;
+}
+void Hero::setY(int newY) {
+    y = newY;
+}
+
+void Hero::heroMovement() {
+    while (true) {
+        std::string direction;
+        std::cout << "Enter direction to move (up, down, left, right) or type 'exit' to quit: ";
+        std::cin >> direction;
+
+        if (direction == "exit") {
+            std::cout << "Exiting the movement system. Goodbye!\n";
+            break;
+        }
+
+        move(direction);
+        setX(getX());
+        setY(getY());
+        std::cout << "Hero's current position: (" << getX() << ", " << getY() << ")\n";
+    }
+}
+
+int Hero::getExperience() const {
+    return experiencePoints;
+}
+
+int Hero::getLevel() const {
+    return level;
+}
