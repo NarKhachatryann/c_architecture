@@ -6,7 +6,6 @@
 
 class Action {
 private:
-    std::vector<std::string> actions;
     std::string actionName;
     std::string actionType;
     std::string actionStatus;
@@ -15,6 +14,9 @@ private:
     std::string actionLocation;
 
 public:
+    Action();
+    Action(const std::string& name, const std::string& type, const std::string& status,
+           const std::string& description, const std::string& timestamp, const std::string& location);
 
     void initialize();
     void execute();
@@ -41,6 +43,16 @@ public:
     void displayActionStatus() const;
     void displayActionLocation() const;
     void displayActionDescription() const;
+};
+
+class ActionManager {
+private:
+    std::vector<Action> actions;
+public:
+    void addAction(const Action& action);
+    void removeAction(const std::string& actionName);
+    void listActions() const;
+    Action getAction(const std::string& actionName) const;
 };
 
 #endif
