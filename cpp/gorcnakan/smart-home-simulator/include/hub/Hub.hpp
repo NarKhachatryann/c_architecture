@@ -7,6 +7,8 @@
 #include <memory>
 #include "../devices/Device.hpp"
 
+class Device;
+
 class Hub {
 private:
     std::vector<std::shared_ptr<Device>> devices;

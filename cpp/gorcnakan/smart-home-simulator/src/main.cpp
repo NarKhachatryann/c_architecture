@@ -1,7 +1,7 @@
-#include "../include/hub/Hub.hpp"
-#include "../include/devices/Light.hpp"
-#include "../include/devices/Thermostat.hpp"
-#include "../include/logger/Logger.hpp"
+#include "hub/Hub.hpp"
+#include "devices/Light.hpp"
+#include "devices/Thermostat.hpp"
+#include "logger/Logger.hpp"
 #include <iostream>
 #include <memory>
 

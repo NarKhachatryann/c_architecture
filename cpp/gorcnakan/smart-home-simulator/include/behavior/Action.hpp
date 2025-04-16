@@ -6,6 +6,7 @@
 
 class Action {
 private:
+    std::vector<std::string> actions;
     std::string actionName;
     std::string actionType;
     std::string actionStatus;

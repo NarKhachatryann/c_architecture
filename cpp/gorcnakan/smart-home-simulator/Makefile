@@ -6,6 +6,8 @@ INC_DIR := include
 BUILD_DIR := build
 TEST_DIR := tests
 
+include_directories("${PROJECT_SOURCE_DIR}/include")
+
 SRCS := $(wildcard $(SRC_DIR)/**/*.cpp $(SRC_DIR)/*.cpp)
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 TEST_SRCS := $(wildcard $(TEST_DIR)/*.cpp)

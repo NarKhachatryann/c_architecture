@@ -1,4 +1,4 @@
-#include "../../include/devices/Thermostat.hpp"
+#include "devices/Thermostat.hpp"
 
 Thermostat::Thermostat(const std::string& thermostatName, float initialTemperature)
     : Device(thermostatName), currentTemperature(initialTemperature), desiredTemperature(initialTemperature) {}

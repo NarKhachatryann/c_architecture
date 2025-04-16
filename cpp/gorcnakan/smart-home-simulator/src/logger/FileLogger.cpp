@@ -1,4 +1,4 @@
-#include "../../include/logger/Logger.hpp"
+#include "logger/Logger.hpp"
 
 FileLogger::FileLogger(const std::string& filename) {
     file.open(filename, std::ios::app);

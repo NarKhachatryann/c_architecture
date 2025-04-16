@@ -1,4 +1,4 @@
-#include "../../include/behavior/Action.hpp"
+#include "behavior/Action.hpp"
 #include <chrono>
 #include <iomanip>
 #include <sstream>

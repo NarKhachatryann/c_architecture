@@ -1,4 +1,4 @@
-#include "../../include/behavior/Scheduler.hpp"
+#include "behavior/Scheduler.hpp"
 
 void Scheduler::executeAfterDelay(int milliseconds) {
     std::cout << "Waiting for " << milliseconds << " milliseconds..." << std::endl;
